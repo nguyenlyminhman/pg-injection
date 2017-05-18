@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Image</td>
+            <td>Video</td>
+            <td>Description</td>
+            <td>Option</td>
+        </tr>
+        <% data.forEach(data=>{ %>
+            <tr>
+
+                <td>
+                    <%= data.id %>
+                </td>
+                <td>
+                    <%= data.title %>
+                </td>
+                <td>
+                    <%= data.image %>
+                </td>
+                <td>
+                    <%= data.video %>
+                </td>
+                <td>
+                    <%= data.descr %>
+                </td>
+
+                <td>
+                    <a href="/edit/<%= data.id %>">edit</a>
+                    
+                    <a href="/delete/<%= data.id %>">delete</a>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <br/><br/><br/>
+    <h1>Add new product</h1>
+    <form action="/admin/addNewProduct" method="Post">
+
+        title: <input type="text" name="title"> <br/><br/> 
+        img: <input type="text" name="image"> <br/><br/> 
+        video: <input type="text" name="video"> <br/><br/>
+        desc: <input type="text" name="descr"> <br/><br/>
+
+        <button> Add </button>
+    </form>
+</body>
+
+</html>

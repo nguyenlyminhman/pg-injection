@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Update...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Update product</h1>
+
+    <form action="/admin/updateProduct" method="Post">
+        <% data.forEach(data=>{ %>
+            <h1> Product ID:
+                <%= data.id %>
+            </h1>
+            <input name="id" type="hidden" value="<%= data.id %>"> 
+            title: <input type="text" name="title" value="<%=data.title %>">
+            <br/><br/> img: <input type="text" name="image" value="<%=data.image %>">
+            <br/><br/> video: <input type="text" name="video" value="<%=data.video %>">
+            <br/><br/> desc: <input type="text" name="descr" value="<%=data.descr %>">
+            <br/><br/> <button> Update </button>
+            <% }) %>
+    </form>
+</body>
+
+</html>
